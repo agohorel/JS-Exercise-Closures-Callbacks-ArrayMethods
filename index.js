@@ -134,9 +134,7 @@ function processProduct(num1, num2, callback) {
  * should return "sad".
  */
 function processContains(item, list, callback) {
-  let bool = false;
-  list.forEach(elt => (elt === item ? (bool = true) : null));
-  return callback(bool);
+  return callback(list.includes(item || undefined));
 }
 
 /**
