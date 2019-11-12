@@ -47,8 +47,8 @@ function processFirstItem(stringList, callback) {
  * [2] Invoking `processLength` passing `[]` and `(num) => "There are " + num`,
  * should return "There are 0".
  */
-function processLength(arr, callback) {
-  return callback(arr.length);
+function processLength(list, callback) {
+  return callback(list.length);
 }
 
 /**
@@ -65,8 +65,8 @@ function processLength(arr, callback) {
  * Invoking `processLastItem` passing `['foo', 'bar']` and `(str) => str + str`,
  * should return 'barbar'.
  */
-function processLastItem(arr, callback) {
-  return callback(arr[arr.length - 1]);
+function processLastItem(stringList, callback) {
+  return callback(stringList[stringList.length - 1]);
 }
 
 /**
@@ -86,8 +86,8 @@ function processLastItem(arr, callback) {
  * [2] Invoking `processSum` passing `[]` and `(num) => num + 1000`,
  * should return 1000.
  */
-function processSum(arr, callback) {
-  const sum = arr.reduce((sum, val) => (sum += val), 0);
+function processSum(numberList, callback) {
+  const sum = numberList.reduce((sum, val) => (sum += val), 0);
   return callback(sum);
 }
 
@@ -133,9 +133,9 @@ function processProduct(num1, num2, callback) {
  * "lady gaga" and `['foo', 'bar']` and `(bool) => bool ? 'nice!' : 'sad'`,
  * should return "sad".
  */
-function processContains(item, arr, callback) {
+function processContains(item, list, callback) {
   let bool = false;
-  arr.forEach(elt => (elt === item ? bool = true : null));
+  list.forEach(elt => (elt === item ? (bool = true) : null));
   return callback(bool);
 }
 
@@ -158,8 +158,8 @@ function processContains(item, arr, callback) {
  * [2] Invoking `processDuplicateFree` passing `[1,1,2,2,3]` and `(arr) => arr.length`,
  * should return 3.
  */
-function processDuplicateFree(arr, callback) {
-  return callback([...new Set(arr)]);
+function processDuplicateFree(list, callback) {
+  return callback([...new Set(list)]);
 }
 
 /////////////// HIGHER-ORDER ARRAY METHODS ///////////////
@@ -213,8 +213,8 @@ function firstNamesAllCaps(runners) {
  * @returns an array containing only the runners that use the given `tShirtSize`.
  * The runners in the array appear in the same order they appear in the `runners` array.
  */
-function getRunnersByTShirtSize(runners, shirtSize) {
-  return runners.filter(runner => runner.shirt_size === shirtSize);
+function getRunnersByTShirtSize(runners, tShirtSize) {
+  return runners.filter(runner => runner.shirt_size === tShirtSize);
 }
 
 /**
